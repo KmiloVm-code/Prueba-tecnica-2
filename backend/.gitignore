@@ -1,0 +1,61 @@
+# Node / Express gitignore
+
+# Dependencias
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+.env.test
+
+# Salidas de build / runtime
+dist/
+build/
+tmp/
+out/
+.cache/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Cachés de bundlers / frameworks
+.next/
+.parcel-cache/
+.vite/
+
+# Lockfiles (opcional: inclúyelos si no quieres versionarlos)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE / Sistema
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.DS_Store
+Thumbs.db
+
+# PM2 / procesos
+pids/
+*.pid
+
+# Paquetes empaquetados
+*.tgz
+
+# Otros archivos temporales
+*.tmp
+*.temp
+
