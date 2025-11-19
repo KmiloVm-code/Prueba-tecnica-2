@@ -8,10 +8,7 @@ export const login = async (req, res) => {
     if (!existingUser) {
       return res.status(404).json({ message: "User not found" });
     }
-    const isPasswordCorrect = await user.comparePassword(
-      password,
-      existingUser.password
-    );
+    const isPasswordCorrect = await existingUser.matchPassword(password);
     if (!isPasswordCorrect) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
@@ -61,10 +58,9 @@ export const register = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "Username already taken" });
     }
-    const hashedPassword = await user.hashPassword(password);
     const newUser = new user({
       username,
-      password: hashedPassword,
+      password,
       email,
     });
     await newUser.save();
