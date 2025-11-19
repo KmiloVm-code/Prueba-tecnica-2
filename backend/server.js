@@ -1,6 +1,8 @@
 import express from 'express';
+import coockieParser from 'cookie-parser';
 
 const app = express();
+app.use(coockieParser());
 const PORT = 3000;
 
 app.get('/', (req, res) => {
