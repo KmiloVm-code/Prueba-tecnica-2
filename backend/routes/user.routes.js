@@ -2,7 +2,7 @@ import {
   getUsers,
   getUserById,
   deleteUser,
-} from "../controllers/user.controller";
+} from "../controllers/user.controller.js";
 import { Router } from "express";
 
 const router = Router();

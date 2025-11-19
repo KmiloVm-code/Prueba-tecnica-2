@@ -1,5 +1,4 @@
 import user from "../models/user.js";
-import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const login = async (req, res) => {
@@ -9,7 +8,7 @@ export const login = async (req, res) => {
     if (!existingUser) {
       return res.status(404).json({ message: "User not found" });
     }
-    const isPasswordCorrect = await bcrypt.compare(
+    const isPasswordCorrect = await user.comparePassword(
       password,
       existingUser.password
     );
@@ -62,7 +61,7 @@ export const register = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "Username already taken" });
     }
-    const hashedPassword = await bcrypt.hash(password, 12);
+    const hashedPassword = await user.hashPassword(password);
     const newUser = new user({
       username,
       password: hashedPassword,
