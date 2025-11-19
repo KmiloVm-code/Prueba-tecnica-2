@@ -3,28 +3,7 @@ import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
   {
-    code: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    firstName: {
-      type: String,
-      required: true,
-    },
-    lastName1: {
-      type: String,
-      required: true,
-    },
-    lastName2: {
-      type: String,
-    },
-    departmentCode: {
-      type: String,
-      required: true,
-      ref: "Department",
-    },
-    email: {
+    username: {
       type: String,
       required: true,
       unique: true,
@@ -58,3 +37,5 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 };
 
 const User = mongoose.model("User", userSchema);
+
+export default User;
