@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema(
     departmentCode: {
       type: String,
       required: true,
+      ref: "Department",
     },
     email: {
       type: String,
