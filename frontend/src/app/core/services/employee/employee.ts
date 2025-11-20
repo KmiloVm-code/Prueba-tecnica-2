@@ -12,19 +12,19 @@ export class Employee {
   getAllEmployees(): Observable<EmployeeModel[]> {
     return this.apiService.get<EmployeeModel[]>('/employees');
   }
-  getEmployeeById(employeeId: number): Observable<EmployeeModel> {
+  getEmployeeById(employeeId: string): Observable<EmployeeModel> {
     return this.apiService.get<EmployeeModel>(`/employees/${employeeId}`);
   }
   createEmployee(employeeData: EmployeeCreate): Observable<EmployeeModel> {
     return this.apiService.post<EmployeeModel>('/employees', employeeData);
   }
   updateEmployee(
-    employeeId: number,
+    employeeId: string,
     employeeData: Partial<EmployeeModel>
   ): Observable<EmployeeModel> {
     return this.apiService.put<EmployeeModel>(`/employees/${employeeId}`, employeeData);
   }
-  deleteEmployee(employeeId: number): Observable<void> {
+  deleteEmployee(employeeId: string): Observable<void> {
     return this.apiService.delete<void>(`/employees/${employeeId}`);
   }
 }

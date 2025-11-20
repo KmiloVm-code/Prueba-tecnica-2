@@ -59,7 +59,7 @@ export class Login implements OnInit {
           localStorage.setItem('token', (response as any).token);
         }
         this.loading = false;
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         console.error('Error en login:', error);
